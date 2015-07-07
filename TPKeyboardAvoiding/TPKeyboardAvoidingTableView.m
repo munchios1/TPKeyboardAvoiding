@@ -91,7 +91,9 @@
 #pragma mark - Responders, events
 
 -(void)willMoveToSuperview:(UIView *)newSuperview {
-    [super willMoveToSuperview:newSuperview];
+    
+    if(newSuperview)
+        [super willMoveToSuperview:newSuperview];
     if ( !newSuperview ) {
         [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(TPKeyboardAvoiding_assignTextDelegateForViewsBeneathView:) object:self];
     }
